@@ -48,3 +48,9 @@ $> ng serve
 * Abrir Chrome en [http://localhost:4200](http://localhost:4200)
 
 * Si en pantalla se muestra el texto "App works!" es que estás preparado para seguir el taller.
+
+* Otras dependencias necesarias:
+
+```bash
+$> npm install -g json-server
+```
