@@ -1,4 +1,6 @@
+import { SearchUserService } from './search-user/search-user.service';
 import { Component } from '@angular/core';
+import { User } from './model/user';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  user: User;
+  error: string;
+
+  constructor(private service: SearchUserService) {}
+
+  search(username: string): void {
+    this.service.search(username).subscribe(
+      user => this.user = user,
+      error => this.error = error
+    );
+  }
+
 }
