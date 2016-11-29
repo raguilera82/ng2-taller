@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SearchUserService } from './search-user/search-user.service';
 import { HttpModule } from '@angular/http';
 
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core'; 
+
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -14,7 +16,8 @@ describe('AppComponent', () => {
       ],
       providers: [
         {provide: SearchUserService, useClass: SearchUserServiceMock}
-        ]
+        ],
+      schemas: [NO_ERRORS_SCHEMA]
     });
   });
 
