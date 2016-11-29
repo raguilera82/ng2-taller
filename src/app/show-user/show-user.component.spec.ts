@@ -1,9 +1,10 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { ShowUserComponent } from './show-user.component';
+import { AdminPipe } from '../admin/admin.pipe';
 
 describe('ShowUserComponent', () => {
   let component: ShowUserComponent;
@@ -11,7 +12,7 @@ describe('ShowUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowUserComponent ]
+      declarations: [ ShowUserComponent, AdminPipe ],
     })
     .compileComponents();
   }));

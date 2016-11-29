@@ -7,11 +7,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ShowUserComponent } from './show-user/show-user.component';
+import { AdminPipe } from './admin/admin.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShowUserComponent
+    ShowUserComponent,
+    AdminPipe,
+    AdminPipe
   ],
   imports: [
     BrowserModule,
