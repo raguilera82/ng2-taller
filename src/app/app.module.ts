@@ -13,7 +13,6 @@ import { AdminPipe } from './admin/admin.pipe';
   declarations: [
     AppComponent,
     ShowUserComponent,
-    AdminPipe,
     AdminPipe
   ],
   imports: [
