@@ -8,7 +8,8 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "electron": "ng build --prod; cp electron/index.html dist/index.html; electron electron/main.js"
   },
   "private": true,
   "dependencies": {
@@ -27,10 +28,15 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "2.2.1",
+    "@types/cordova": "0.0.34",
+    "@types/electron": "^1.4.29",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.21",
+    "angular-cli-ghpages": "^0.3.2",
     "codelyzer": "~1.0.0-beta.3",
+    "cordova": "^6.4.0",
+    "electron": "^1.4.10",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",

@@ -14,6 +14,8 @@ export class AppComponent {
   constructor(private service: SearchUserService) {}
 
   search(username: string): void {
+    this.user = null;
+    this.error = null;
     this.service.search(username).subscribe(
       user => this.user = user,
       error => this.error = error
