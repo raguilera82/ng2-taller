@@ -1,5 +1,5 @@
 import { User } from './../model/user';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-show-user',
@@ -8,11 +8,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ShowUserComponent implements OnInit {
 
+
   @Input() private user: User;
+
+  @Output() private selected: EventEmitter<User> = new EventEmitter<User>();
+
+  @HostListener('click', ['$event'])
+  onClick(e) {
+    this.selected.emit(this.user);
+  }
 
   constructor() { }
 
   ngOnInit() {
   }
+
+
+
 
 }

@@ -22,4 +22,8 @@ export class AppComponent {
     );
   }
 
+  userSelected(event) {
+    alert(event.name);
+  }
+
 }

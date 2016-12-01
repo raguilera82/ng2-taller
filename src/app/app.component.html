@@ -7,7 +7,7 @@
   <button id="search" (click)="search(username.value)">Search</button>
 </form>
 
-<app-show-user [user]="user"></app-show-user>
+<app-show-user [user]="user" (selected)="userSelected($event)"></app-show-user>
 
 <div *ngIf="error">
   <p>Se ha producido un error: {{error}}</p>
