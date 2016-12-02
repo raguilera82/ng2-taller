@@ -20,4 +20,5 @@ describe('SearchUserService', () => {
       user => expect(user.login).toEqual(USERNAME)
     );
   })));
+
 });

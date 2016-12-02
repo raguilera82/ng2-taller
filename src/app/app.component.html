@@ -1,14 +1,1 @@
-<h1>
-  Search User
-</h1>
-
-<form>
-  Username: <input type="text" id="username" #username>
-  <button id="search" (click)="search(username.value)">Search</button>
-</form>
-
-<app-show-user [user]="user" (selected)="userSelected($event)"></app-show-user>
-
-<div *ngIf="error">
-  <p>Se ha producido un error: {{error}}</p>
-</div>
+<router-outlet></router-outlet>

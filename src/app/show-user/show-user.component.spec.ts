@@ -5,6 +5,7 @@ import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { ShowUserComponent } from './show-user.component';
 import { AdminPipe } from '../admin/admin.pipe';
+import { User } from '../model/user';
 
 describe('ShowUserComponent', () => {
   let component: ShowUserComponent;
@@ -26,4 +27,5 @@ describe('ShowUserComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

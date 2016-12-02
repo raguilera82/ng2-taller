@@ -9,12 +9,12 @@ import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@a
 export class ShowUserComponent implements OnInit {
 
 
-  @Input() private user: User;
+  @Input() public user: User;
 
-  @Output() private selected: EventEmitter<User> = new EventEmitter<User>();
+  @Output() public selected: EventEmitter<User> = new EventEmitter<User>();
 
   @HostListener('click', ['$event'])
-  onClick(e) {
+  onClick() {
     this.selected.emit(this.user);
   }
 
