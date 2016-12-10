@@ -13,8 +13,25 @@ export class SearchUserService {
     .map(response => this.getUser(response.json()));
   }
 
+  searchAll(): Observable<User[]> {
+    return this.proxy.searchAll().map(
+      response => {
+        return response.json().map(one => this.builderUser(one));
+      }
+    );
+  }
+
   private getUser(json: any): User {
     return new User(json.login, json.name, json.company, json.id, json.avatar_url, json.admin);
+  }
+
+  private builderUser(json: any): Observable<User> {
+    console.log(json.login);
+    return this.search(json.login).map(
+      user => {
+        return user;
+      }
+    )
   }
 
 }

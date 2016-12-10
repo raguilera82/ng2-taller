@@ -1,0 +1,8 @@
+<h1>List Users</h1>
+
+<div *ngFor="let user of users" (click)="searchUser(user.login)">
+  <div *ngIf="user">
+    {{user.login}}
+    <app-show-user [user]="user"></app-show-user>
+  </div>
+</div>

@@ -1,5 +1,7 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from './../model/user';
 import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { SearchUserService } from '../search-user/search-user.service';
 
 @Component({
   selector: 'app-show-user',
@@ -8,6 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter, HostListener } from '@a
 })
 export class ShowUserComponent implements OnInit {
 
+  isBack: boolean = false;
 
   @Input() public user: User;
 
@@ -18,9 +21,20 @@ export class ShowUserComponent implements OnInit {
     this.selected.emit(this.user);
   }
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute, private service: SearchUserService) { }
 
   ngOnInit() {
+    let username: string = this.route.snapshot.params['username'];
+    if (username) {
+      this.isBack = true;
+      this.service.search(username).subscribe(
+        user => this.user = user
+      );
+    }
+  }
+
+  back(): void {
+    this.router.navigate(['searchAll']);
   }
 
 

@@ -10,10 +10,13 @@ import { ShowUserComponent } from './show-user/show-user.component';
 import { AdminPipe } from './admin/admin.pipe';
 import { SearchUserComponent } from './search-user/search-user.component';
 import { Routes, RouterModule } from '@angular/router';
+import { ListUsersComponent } from './list-users/list-users.component';
 
 const ROUTES: Routes = [
+  {path: 'detail/:username', component: ShowUserComponent},
   {path: 'search', component: SearchUserComponent},
-  {path: '', redirectTo: 'search', pathMatch: 'full'}
+  {path: 'searchAll', component: ListUsersComponent},
+  {path: '', redirectTo: 'searchAll', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -21,7 +24,8 @@ const ROUTES: Routes = [
     AppComponent,
     ShowUserComponent,
     AdminPipe,
-    SearchUserComponent
+    SearchUserComponent,
+    ListUsersComponent
   ],
   imports: [
     BrowserModule,

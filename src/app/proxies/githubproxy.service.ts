@@ -9,7 +9,11 @@ export class GithubproxyService {
   constructor(private http: Http) { }
 
   search(username: string): Observable<Response> {
-    return this.http.get(environment.url + username);
+    return this.http.get(environment.url + '/' +  username);
+  }
+
+  searchAll(): Observable<Response> {
+    return this.http.get(environment.url);
   }
 
 }
