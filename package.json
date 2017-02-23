@@ -4,11 +4,20 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
+    "precommit": "npm test -- --single-run",
+    "commit": "git-cz",
+    "ng": "ng",
+    "serve:build": "http-server ./dist -s -p 4200",
     "start": "ng serve",
+    "start:aot": "ng serve --prod --aot",
+    "prebuild": "npm test -- --single-run",
+    "build": "ng build --prod --aot --bh /ng2-ci-app/",
+    "build:travis": "ng build --prod --aot",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "pree2e": "webdriver-manager update --standalone false --gecko false",
+    "e2e": "concurrently \"npm run serve:build\" \"protractor\" --kill-others --success first",
+    "stop": "kill $(cat .pid)"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +40,10 @@
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.21",
     "codelyzer": "~1.0.0-beta.3",
+    "commitizen": "2.9.5",
+    "concurrently": "3.1.0",
+    "cz-conventional-changelog": "1.2.0",
+    "http-server": "0.9.0",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
